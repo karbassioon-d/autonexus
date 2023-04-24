@@ -48,3 +48,11 @@ def api_list_salespeople(request, employee_id):
             {"salesperson": salesperson},
             encoder=SalespersonEncoder,
         )
+    else:
+        content = json.loads(request.body)
+        salesperson = Salesperson.create(**content)
+        return JsonResponse(
+                salesperson,
+                encoder=SalespersonEncoder,
+                safe=False,
+        )
