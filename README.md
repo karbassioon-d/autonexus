@@ -2,7 +2,7 @@
 
 Team:
 
-* Person 1 - Which microservice?
+* Christian Tegene- Services
 * Dara Karbassioon- Sales
 
 ## Design
@@ -11,6 +11,7 @@ Bootstrap
 
 Explain your models and integration with the inventory
 microservice, here.
+I will make a Technician, Appointment, andAutomobileVO model. My poller will get data from the Automobile model in Inventory
 
 ## Sales microservice
 
