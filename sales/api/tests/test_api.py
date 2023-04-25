@@ -123,8 +123,8 @@ class Tests(TransactionTestCase):
         sale = Sale.objects.create(automobile=auto, salesperson=salesperson, customer=customer, price=1000)
 
         client = Client()
-        response = client.delete(f"/api/sales/{sale.id}/")
+        response = client.delete(f"/api/sales/{sale.id}")
         self.assertEqual(response.status_code, 200, msg="Did not get a 200 OK for sales delete.")
 
-        response = client.delete(f"/api/sales/{sale.id}/")
+        response = client.delete(f"/api/sales/{sale.id}")
         self.assertTrue(response.status_code == 404 or response.status_code == 400, msg="Did not get a 404 OK sales delete of an unknown id.")
