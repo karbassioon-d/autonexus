@@ -23,6 +23,7 @@ class Appointment(models.Model):
     customer = models.CharField(max_length=200)
     vin = models.CharField(max_length=200)
     technician = models.ForeignKey(Technician, related_name="appointments", on_delete=models.CASCADE)
+    vip_status = models.BooleanField(default=False, null=True)
 
     def get_api_url(self):
         return reverse("", kwargs={"id": self.id})
