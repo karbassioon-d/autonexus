@@ -1,6 +1,17 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
+import SalespersonForm from './SalespersonForm';
+import SalespeopleList from './SalespeopleList';
+import ManufacturerList from './ManufacturerList';
+import ManufacturerForm from './ManufacturerForm';
+import CustomerForm from './CustomerForm';
+import CustomerList from './CustomerList';
+import SaleList from './SaleList';
+import SaleForm from './SaleForm';
+import SalespersonHistory from './SalespersonHistory';
+import ModelForm from './ModelForm';
+import ModelList from './ModelList';
 
 function App() {
   return (
@@ -9,7 +20,40 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<MainPage />} />
+
+          <Route path="manufacturers" >
+            <Route path="" element={<ManufacturerList />} />
+            <Route path="new" element={<ManufacturerForm />} />
+          </Route>
+
+          <Route path="models" >
+            <Route path="" element={<ModelList />} />
+            <Route path="new" element={<ModelForm />} />
+          </Route>
+
+          <Route path="salespeople" >
+            <Route path="" element={<SalespeopleList />} />
+            <Route path="new" element={<SalespersonForm />} />
+          </Route>
+
+          <Route path="customers" >
+            <Route path="" element={<CustomerList />} />
+            <Route path="new" element={<CustomerForm />} />
+          </Route>
+
+          <Route path="sale" >
+            <Route path="" element={<SaleList />} />
+            <Route path="new" element={<SaleForm />} />
+          </Route>
+
+          <Route path="salespersonhistory" element={<SalespersonHistory />} />
+
+
+
         </Routes>
+
+
+
       </div>
     </BrowserRouter>
   );
