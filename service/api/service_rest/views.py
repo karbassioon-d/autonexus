@@ -31,6 +31,7 @@ class AppointmentEncoder(ModelEncoder):
         "customer",
         "vin",
         "technician",
+        "vip_status",
         "id"
     ]
     encoders = {
@@ -79,6 +80,13 @@ def api_list_appointments(request):
         print(content)
 
         try:
+            vin = content["vin"]
+            vin = AutomobileVO.objects.get(vin=vin)
+            content["vip_status"] = True
+        except AutomobileVO.DoesNotExist:
+            content["vip_status"] = False
+
+        try:
             technician_id = content["technician"]
 
             technician = Technician.objects.get(employee_id=technician_id)
@@ -95,6 +103,8 @@ def api_list_appointments(request):
                 {"message": "Invalid technician id"},
                 status=404,
             )
+
+
 
 
 @require_http_methods(["DELETE", "PUT"])
