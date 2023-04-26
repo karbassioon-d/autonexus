@@ -12,11 +12,12 @@ import SaleForm from './SaleForm';
 import SalespersonHistory from './SalespersonHistory';
 import ModelForm from './ModelForm';
 import ModelList from './ModelList';
-
 import TechnicianList from './TechnicianList';
 import CreateTechnicianForm from './TechnicianForm';
 import AppointmentList from './AppointmentList';
 import CreateAppointmentForm from './CreateAppointmentForm'
+
+
 function App() {
   return (
     <BrowserRouter>
@@ -51,8 +52,6 @@ function App() {
           </Route>
 
           <Route path="salespersonhistory" element={<SalespersonHistory />} />
-
-
 
           <Route path="technicians" >
             <Route path="" element={<TechnicianList />} />

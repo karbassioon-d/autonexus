@@ -7,6 +7,7 @@ function MainPage() {
           The premiere solution for automobile dealership
           management!
         </p>
+        <img src={process.env.PUBLIC_URL + '/rotating-car.gif'} />
       </div>
     </div>
   );

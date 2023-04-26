@@ -46,7 +46,7 @@ const SalespeopleList = () => {
               return (
               <tr key={manufacturer.id} value={manufacturer.id} >
                   <td>{manufacturer.name}</td>
-                  <td>
+                  <td className="d-flex justify-content-around">
                     <button className="btn btn-sm btn-outline-primary" onClick={(event) => deleteManufacturer(event, manufacturer.id)}>Delete</button>
                   </td>
               </tr>

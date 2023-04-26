@@ -2,16 +2,16 @@ import { NavLink } from 'react-router-dom';
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark bg-success d-flex flex-row">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">CarCar</NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <div className="collapse navbar-collapse container-fluid" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto ml-auto d-flex flex-wrap mb-2 mb-lg-0">
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/manufacturers">Manufacturer</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/manufacturers">Manufacturers</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link active" aria-current="page" to="/manufacturers/new">Create a Manufacturer</NavLink>
@@ -20,7 +20,7 @@ function Nav() {
               <NavLink className="nav-link active" aria-current="page" to="/models">Models</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/modles/new">Create a Model</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/models/new">Create a Model</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link active" aria-current="page" to="/automobiles">Automobiles</NavLink>
@@ -44,7 +44,7 @@ function Nav() {
               <NavLink className="nav-link active" aria-current="page" to="/sale">Sale</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/sale/new">Add a Sale</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/sale/new">Record a new Sale</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link active" aria-current="page" to="/salespersonhistory">Salesperson History</NavLink>

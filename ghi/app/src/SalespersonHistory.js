@@ -6,6 +6,7 @@ const SalespersonHistory = () => {
 
     const [salesperson, setSalesperson] = useState('');
     const [sales, setSales] = useState([]);
+    const [filteredsales, setFilteredsales] = useState([]);
 
     const fetchSalespersonData = async () => {
         const url = 'http://localhost:8090/api/salespeople/';
@@ -22,15 +23,14 @@ const SalespersonHistory = () => {
         if (response.ok) {
             const data = await response.json();
             setSales(data.sale)
-            console.log(sales)
         }
     }
 
     const handleSalespersonChange = (event) => {
         const value = event.target.value;
         setSalesperson(value);
-        setSales(sales.filter(sale => sale.salesperson.employee_id === parseInt(value)))
-        window.location.reload(false)
+        const filteredSales = sales.filter(sale => sale.salesperson.employee_id === parseInt(value));
+        setFilteredsales(filteredSales);
       }
 
     useEffect(() => {
@@ -64,7 +64,7 @@ const SalespersonHistory = () => {
             </tr>
             </thead>
             <tbody>
-            {sales.map(sale => {
+            {filteredsales.map(sale => {
                 return (
                 <tr key={sale.id} value={sale.id} >
                     <td>{sale.salesperson.first_name} {sale.salesperson.last_name}</td>
