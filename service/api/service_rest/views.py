@@ -5,13 +5,6 @@ import json
 from common.json import ModelEncoder
 from .models import Technician, Appointment, AutomobileVO
 
-# Create your views here.
-
-class AutomobileVOEncoder(ModelEncoder):
-    model = AutomobileVO
-    properties = [
-        "vin"
-    ]
 
 class TechnicianEncoder(ModelEncoder):
     model = Technician
@@ -42,11 +35,18 @@ class AppointmentEncoder(ModelEncoder):
 @require_http_methods(["GET", "POST"])
 def api_list_technicians(request):
     if request.method == "GET":
-        technicians = Technician.objects.all()
-        return JsonResponse(
-            {"technicians": technicians},
-            encoder=TechnicianEncoder
-        )
+        try:
+            technicians = Technician.objects.all()
+            return JsonResponse(
+                {"technicians": technicians},
+                encoder=TechnicianEncoder
+            )
+        except Technician.DoesNotExist():
+            return JsonResponse(
+                {"message": "Invalid technician id"},
+                status=404,
+            )
+
     else:
         content = json.loads(request.body)
         technician = Technician.objects.create(**content)
