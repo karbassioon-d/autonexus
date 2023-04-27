@@ -47,13 +47,13 @@ const ManufacturerForm = () => {
           <div className="row">
             <div className="offset-3 col-6">
               <div className="shadow p-4 mt-4">
-                <h1>Create a new manufacturer</h1>
-                <form onSubmit={handleSubmit} id="create-hat-form">
+                <h1>Add a new manufacturer</h1>
+                <form onSubmit={handleSubmit} id="add-manufacturer-form">
                   <div className="form-floating mb-3">
                     <input onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control" value={name} />
                     <label htmlFor="name">Name</label>
                   </div>
-                  <button className="btn btn-primary">Create</button>
+                  <button className="btn btn-primary">Add</button>
                 </form>
               </div>
             </div>

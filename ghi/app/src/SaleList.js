@@ -12,17 +12,18 @@ const SaleList = () => {
       if (response.ok) {
         const data = await response.json();
         setSales(data.sale)
+        console.log(data.sale)
       }
     };
 
-    const deleteSale = async (event, id) => {
-      event.preventDefault();
-      const url = `http://localhost:8090/api/sale/${id}/`;
-      const response = await fetch(url, {method: "DELETE" });
-      if (response.ok) {
-        setSales(sales.filter((sale) => sale.id !== id));
-      }
-    };
+    // const deleteSale = async (event, id) => {
+    //   event.preventDefault();
+    //   const url = `http://localhost:8090/api/sale/${id}/`;
+    //   const response = await fetch(url, {method: "DELETE" });
+    //   if (response.ok) {
+    //     setSales(sales.filter((sale) => sale.id !== id));
+    //   }
+    // };
 
     useEffect(() => {
       fetchData();

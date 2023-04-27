@@ -50,7 +50,7 @@ const handleSubmit = async (event) => {
             <Link to="/technicians" className="btn btn-lg btn-primary">
                 View Technician List
             </Link>
-            <form onSubmit={handleSubmit} id="create-technician-form">
+            <form onSubmit={handleSubmit} id="add-technician-form">
 
               <div className="form-floating mb-3">
                 <input onChange={handleFirstNameChange} placeholder="First name" required type="text" name="first_name" id="fst_name" className="form-control" value={firstName}/>
@@ -62,7 +62,7 @@ const handleSubmit = async (event) => {
                 <label htmlFor="last_name">Last name</label>
               </div>
 
-              <button className="btn btn-primary">Create</button>
+              <button className="btn btn-primary">Add</button>
             </form>
           </div>
         </div>
