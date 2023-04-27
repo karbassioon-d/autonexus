@@ -19,8 +19,17 @@ def api_automobiles(request):
             encoder=AutomobileEncoder,
         )
     else:
+        content = json.loads(request.body)
+
         try:
-            content = json.loads(request.body)
+            vin = content["vin"]
+            vin = Automobile.objects.get(vin=vin)
+            content["sold"] = True
+        except Automobile.DoesNotExist:
+            content["sold"] = False
+
+        try:
+
             model_id = content["model_id"]
             model = VehicleModel.objects.get(pk=model_id)
             content["model"] = model

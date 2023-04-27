@@ -5,8 +5,6 @@ import { Link } from "react-router-dom"
 const AppointmentList = () => {
 
     const [appointments, setAppointments] = useState([])
-    const [sales, setSales] = useState([])
-
 
 
     const fetchAppointmentList = async () => {
@@ -73,20 +71,20 @@ const AppointmentList = () => {
         }
     };
 
-    const vipStatusCheck = async () => {
-        const vinsList = [];
-        const salesUrl = `http://localhost:8090/api/sale`;
-        const salesResponse = await fetch(salesUrl);
+    // const vipStatusCheck = async () => {
+    //     const vinsList = [];
+    //     const salesUrl = `http://localhost:8090/api/sale`;
+    //     const salesResponse = await fetch(salesUrl);
 
-        const sales = await salesResponse.json();
-        console.log('here is sales', sales.sale)
-        for (let sal of sales.sale) {
-            vinsList.push(sal.automobile.vin)
-        }
+    //     const sales = await salesResponse.json();
+    //     console.log('here is sales', sales.sale)
+    //     for (let sal of sales.sale) {
+    //         vinsList.push(sal.automobile.vin)
+    //     }
 
-        const data = {}; // data to be passed in to PUT request
-        data['vip_status'] = vinsList.includes(data.vin);
-        console.log(data.vip_status)
+    //     const data = {}; // data to be passed in to PUT request
+    //     data['vip_status'] = vinsList.includes(data.vin);
+    //     console.log(data.vip_status)
 
         // const url = `http://localhost:8080/api/appointments/${id}/finish`;
         // const fetchConfig = {
@@ -102,7 +100,7 @@ const AppointmentList = () => {
         //     // Removes the finished appointment from the list of appointments (but not from the db)
         //     setAppointments(appointments.filter((appointment) => appointment.id !== id));
         // }
-    };
+    // };
 
     // This function converts a string date to a JS Date object and returns a modified string date
     function makeDate(string) {
@@ -118,7 +116,7 @@ const AppointmentList = () => {
 
     useEffect(() => {
         fetchAppointmentList();
-        vipStatusCheck();
+        // vipStatusCheck();
     }, []);
 
 

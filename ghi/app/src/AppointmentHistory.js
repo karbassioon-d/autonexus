@@ -77,7 +77,6 @@ const AppointmentHistory = () => {
             );
             })}
             </tbody>
-
         </table>
 
         </div>
