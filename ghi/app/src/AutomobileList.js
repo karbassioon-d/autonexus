@@ -6,6 +6,8 @@ const AutomobileList = () => {
 
     const [automobiles, setAutomobiles] = useState([])
     const [sales, setSales] = useState([])
+    const [sold, setSold] = useState('')
+
 
 
     const fetchAutomobileList = async () => {
@@ -14,7 +16,6 @@ const AutomobileList = () => {
 
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
             setAutomobiles(data.autos)
         }
     }
@@ -25,18 +26,18 @@ const AutomobileList = () => {
 
         if (response.ok) {
             const data = await response.json();
-            console.log('data', data)
-            console.log('data.sale', data.sale)
             setSales(data.sale)
             console.log('here is actually sales', sales)
         }
     }
 
+
+
     useEffect(() => {
         fetchAutomobileList();
         fetchSalesList();
-        console.log('this is sales', sales)
-    }, []);
+        updateSoldStatus(vin);
+    }, [sold]);
 
     return (
         <div className="container">
