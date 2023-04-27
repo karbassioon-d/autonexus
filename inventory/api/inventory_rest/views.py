@@ -1,13 +1,12 @@
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 import json
-
+from .models import Automobile, Manufacturer, VehicleModel
 from .encoders import (
     AutomobileEncoder,
     ManufacturerEncoder,
     VehicleModelEncoder,
 )
-from .models import Automobile, Manufacturer, VehicleModel
 
 
 @require_http_methods(["GET", "POST"])
@@ -72,7 +71,7 @@ def api_automobile(request, vin):
             )
         except Automobile.DoesNotExist:
             return JsonResponse({"message": "Does not exist"})
-    else: # PUT
+    else:
         try:
             content = json.loads(request.body)
             auto = Automobile.objects.get(vin=vin)
@@ -143,7 +142,7 @@ def api_manufacturer(request, pk):
             )
         except Manufacturer.DoesNotExist:
             return JsonResponse({"message": "Does not exist"})
-    else: # PUT
+    else:
         try:
             content = json.loads(request.body)
             manufacturer = Manufacturer.objects.get(id=pk)
@@ -217,7 +216,7 @@ def api_vehicle_model(request, pk):
             )
         except VehicleModel.DoesNotExist:
             return JsonResponse({"message": "Does not exist"})
-    else: # PUT
+    else:
         try:
             content = json.loads(request.body)
             model = VehicleModel.objects.get(id=pk)

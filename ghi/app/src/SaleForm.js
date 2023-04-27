@@ -55,7 +55,6 @@ const SaleForm = () => {
         setVin(value);
     }
 
-
     const handlePriceChange = (event) => {
         const value = event.target.value;
         setPrice(value);
@@ -70,7 +69,6 @@ const SaleForm = () => {
         data.salesperson_id = salesperson;
         data.customer_id = customer;
         data.automobile_id = vin;
-        console.log(data)
 
         const saleUrl = 'http://localhost:8090/api/sale/'
         const fetchConfig = {
@@ -155,7 +153,7 @@ const SaleForm = () => {
             </div>
           </div>
         </div>
-      )
+    )
 }
 
 export default SaleForm

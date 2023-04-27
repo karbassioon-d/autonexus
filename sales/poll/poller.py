@@ -9,9 +9,9 @@ sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sales_project.settings")
 django.setup()
 
-# Import models from sales_rest, here.
-# from sales_rest.models import Something
+
 from sales_rest.models import AutomobileVO
+
 
 def get_automobiles():
     response = requests.get("http://project-beta-inventory-api-1:8000/api/automobiles")
@@ -27,7 +27,6 @@ def poll():
         print('Sales poller polling for data')
         try:
             get_automobiles()
-            print("Successfully polled")
             pass
         except Exception as e:
             print(e, file=sys.stderr)

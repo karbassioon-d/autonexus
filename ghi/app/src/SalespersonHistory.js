@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
-
 const SalespersonHistory = () => {
     const [salespeople, setSalespeople] = useState([]);
-
-    const [salesperson, setSalesperson] = useState('');
     const [sales, setSales] = useState([]);
     const [filteredsales, setFilteredsales] = useState([]);
+
+    const [salesperson, setSalesperson] = useState('');
 
     const fetchSalespersonData = async () => {
         const url = 'http://localhost:8090/api/salespeople/';

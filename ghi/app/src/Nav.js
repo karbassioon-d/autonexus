@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 
-
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark bg-success d-flex flex-row">

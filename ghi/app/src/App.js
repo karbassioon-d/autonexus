@@ -69,11 +69,7 @@ function App() {
             <Route path="" element={<AutomobileList />} />
             <Route path="new" element={<AutomobileForm/>} />
           </Route>
-
         </Routes>
-
-
-
       </div>
     </BrowserRouter>
   );

@@ -16,7 +16,7 @@ django.setup()
 
 from sales_rest.models import AutomobileVO
 
-# This method will be used by the mock to replace requests.get
+
 def mocked_requests_get(*args, **kwargs):
     class MockResponse:
         def __init__(self, json_data, content, status_code):
@@ -38,6 +38,7 @@ def mocked_requests_get(*args, **kwargs):
         return MockResponse(data, json.dumps(data),200)
 
     return MockResponse(None, 404)
+
 
 class Test_Poller(unittest.TestCase):
 
