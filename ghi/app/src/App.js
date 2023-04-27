@@ -18,6 +18,8 @@ import AppointmentList from './AppointmentList';
 import CreateAppointmentForm from './CreateAppointmentForm'
 
 import AppointmentHistory from './AppointmentHistory';
+import AutomobileList from './AutomobileList';
+import AutomobileForm from './AutomobileForm';
 
 function App() {
   return (
@@ -64,6 +66,11 @@ function App() {
             <Route path="" element={<AppointmentList />} />
             <Route path="new" element={<CreateAppointmentForm/>} />
             <Route path="history" element={<AppointmentHistory/>} />
+          </Route>
+
+          <Route path="automobiles" >
+            <Route path="" element={<AutomobileList />} />
+            <Route path="new" element={<AutomobileForm/>} />
           </Route>
 
         </Routes>

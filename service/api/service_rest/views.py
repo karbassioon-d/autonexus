@@ -77,7 +77,6 @@ def api_list_appointments(request):
         )
     else:
         content = json.loads(request.body)
-        print(content)
 
         try:
             vin = content["vin"]
