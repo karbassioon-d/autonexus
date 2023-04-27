@@ -71,8 +71,8 @@ const CustomerForm = () => {
           <div className="row">
             <div className="offset-3 col-6">
               <div className="shadow p-4 mt-4">
-                <h1>Create a new customer</h1>
-                <form onSubmit={handleSubmit} id="create-hat-form">
+                <h1>Add a new customer</h1>
+                <form onSubmit={handleSubmit} id="add-customer-form">
                   <div className="form-floating mb-3">
                     <input onChange={handleFirst_nameChange} placeholder="First name" required type="text" name="first_name" id="first_name" className="form-control" value={first_name} />
                     <label htmlFor="name">First name</label>
@@ -86,10 +86,10 @@ const CustomerForm = () => {
                     <label htmlFor="fabric">Address</label>
                   </div>
                   <div className="form-floating mb-3">
-                    <input onChange={handlePhone_numberChange} placeholder="Phone number" required type="text" name="phone_number" id="phone_number" className="form-control" value={phone_number} />
+                    <input onChange={handlePhone_numberChange} placeholder="Phone number" required type="tel" name="phone_number" id="phone_number" className="form-control" value={phone_number} />
                     <label htmlFor="fabric">Phone number</label>
                   </div>
-                  <button className="btn btn-primary">Create</button>
+                  <button className="btn btn-primary">Add</button>
                 </form>
               </div>
             </div>

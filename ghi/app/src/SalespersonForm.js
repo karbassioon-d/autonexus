@@ -41,7 +41,7 @@ const SalespersonForm = () => {
                 setLast_name('');
             }
             navigate('/salespeople')
-            
+
         } catch (error) {
             console.error(error);
         }
@@ -55,8 +55,8 @@ const SalespersonForm = () => {
           <div className="row">
             <div className="offset-3 col-6">
               <div className="shadow p-4 mt-4">
-                <h1>Create a new salesperson</h1>
-                <form onSubmit={handleSubmit} id="create-hat-form">
+                <h1>Add a new salesperson</h1>
+                <form onSubmit={handleSubmit} id="add-salesperson-form">
                   <div className="form-floating mb-3">
                     <input onChange={handleFirst_nameChange} placeholder="First name" required type="text" name="first_name" id="first_name" className="form-control" value={first_name} />
                     <label htmlFor="name">First name</label>
@@ -65,7 +65,7 @@ const SalespersonForm = () => {
                     <input onChange={handleLast_nameChange} placeholder="Last name" required type="text" name="last_name" id="last_name" className="form-control" value={last_name} />
                     <label htmlFor="fabric">Last name</label>
                   </div>
-                  <button className="btn btn-primary">Create</button>
+                  <button className="btn btn-primary">Add</button>
                 </form>
               </div>
             </div>
