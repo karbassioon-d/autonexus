@@ -4,7 +4,6 @@ const AppointmentForm = () => {
     const [technicians, setTechnicians] = useState([]);
     const [customers, setCustomers] = useState([]);
 
-
     const fetchTechniciansData = async () => {
         const url = 'http://localhost:8080/api/technicians/';
         const response = await fetch(url);
@@ -32,7 +31,6 @@ const AppointmentForm = () => {
     const [technician, setTechnician] = useState('');
     const [reason, setReason] = useState('');
 
-
     const handleAutomobileVINChange = (event) => {
         const value = event.target.value;
         setAutomobileVIN(value);
@@ -58,7 +56,6 @@ const AppointmentForm = () => {
         setReason(value);
     }
 
-
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -68,8 +65,6 @@ const AppointmentForm = () => {
         data.date_time = date + ' ' + time
         data.technician = technician;
         data.reason = reason;
-        console.log('here is how the data is getting posted', data) // Form submits UTC timezone
-
         const appointmentsUrl = `http://localhost:8080/api/appointments/`;
         const fetchConfig = {
             method: "POST",
@@ -88,7 +83,6 @@ const AppointmentForm = () => {
             setReason('');
         }
     }
-
 
     useEffect(() => {
         fetchTechniciansData();

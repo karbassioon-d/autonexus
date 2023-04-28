@@ -26,7 +26,6 @@ const AutomobileForm = () => {
         setModel(value);
     }
 
-    // fetch data from list of models
     const fetchData = async () => {
         const url = 'http://localhost:8100/api/models/';
         const response = await fetch(url);

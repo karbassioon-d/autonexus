@@ -87,6 +87,7 @@ def api_edit_appointment(request, id):
             return JsonResponse({"deleted": True}, status=200)
         else:
             return JsonResponse({"message": "appointment not found"}, status=404)
+
     else:
         content = json.loads(request.body)
         status = content["status"]

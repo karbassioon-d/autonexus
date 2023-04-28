@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-
 const AppointmentHistory = () => {
     const [appointments, setAppointments] = useState([])
     const [search, setSearch] = useState('')
@@ -15,19 +14,23 @@ const AppointmentHistory = () => {
         }
     }
 
+    const handleChange = (event) => {
+        const value = event.target.value;
+        setSearch(value);
+    }
+
     function makeDate(string) {
         let date = new Date(string)
         return `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
     }
 
     function makeTime(string) {
-        let date = new Date(string)
-        return `${date.getHours()}:${date.getMinutes()}`;
-    }
-
-    const handleChange = (event) => {
-        const value = event.target.value;
-        setSearch(value);
+        let time = new Date(string)
+        let minutes = time.getUTCMinutes();
+        if (minutes < 10) {
+            minutes = '0' + minutes.toString();
+        }
+        return `${time.getUTCHours()}:${minutes}`;
     }
 
     useEffect(() => {
