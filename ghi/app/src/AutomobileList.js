@@ -3,17 +3,12 @@ import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
 
 const AutomobileList = () => {
-
     const [automobiles, setAutomobiles] = useState([])
     const [sales, setSales] = useState([])
-    const [sold, setSold] = useState('')
-
-
 
     const fetchAutomobileList = async () => {
         const url = 'http://localhost:8100/api/automobiles/';
         const response = await fetch(url);
-
         if (response.ok) {
             const data = await response.json();
             setAutomobiles(data.autos)
@@ -23,28 +18,23 @@ const AutomobileList = () => {
     const fetchSalesList = async () => {
         const url = 'http://localhost:8090/api/sale/';
         const response = await fetch(url);
-
         if (response.ok) {
             const data = await response.json();
             setSales(data.sale)
-            console.log('here is actually sales', sales)
         }
     }
-
-
 
     useEffect(() => {
         fetchAutomobileList();
         fetchSalesList();
-        updateSoldStatus(vin);
-    }, [sold]);
+    }, []);
 
     return (
         <div className="container">
-        <h1>Automobiles</h1>
-            <Link to="new" className="btn btn-md btn-primary">
-                Add an automobile
-            </Link>
+        <h1 className="text-center">Automobiles <Link to="new" className="btn btn-sm btn-success ">
+                +
+            </Link></h1>
+
         <table className="table table-striped">
             <thead>
             <tr>
@@ -70,11 +60,8 @@ const AutomobileList = () => {
             </tr>
             );
             })}
-
             </tbody>
-
         </table>
-
         </div>
     )
 }

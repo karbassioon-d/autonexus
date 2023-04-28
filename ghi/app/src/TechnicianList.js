@@ -7,7 +7,6 @@ const TechnicianList = () => {
   const fetchData = async () => {
     const url = 'http://localhost:8080/api/technicians/';
     const response = await fetch(url);
-    console.log(response)
 
     if (response.ok) {
       const data = await response.json();
@@ -30,10 +29,10 @@ const TechnicianList = () => {
 
   return (
     <div className="container">
-      <h1>Technicians</h1>
-        <Link to="/technicians/new" className="btn btn-lg btn-primary">
-            Add a technician
-        </Link>
+      <h1 className="text-center">Technicians <Link to="new" className="btn btn-sm btn-success ">
+                +
+            </Link></h1>
+
       <table className="table table-striped">
         <thead>
           <tr>
@@ -49,8 +48,8 @@ const TechnicianList = () => {
             <td>{technician.first_name}</td>
             <td>{technician.last_name}</td>
             <td>{technician.employee_id}</td>
-            <td><button className="btn btn-sm btn-danger" onClick={(event) => removeTechnician(event, technician.employee_id)}>Delete</button></td>
-            
+            <td><button className="btn btn-sm btn-outline-danger" onClick={(event) => removeTechnician(event, technician.employee_id)}>Delete</button></td>
+
           </tr>
           );
         })}

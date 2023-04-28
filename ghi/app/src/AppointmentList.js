@@ -3,9 +3,7 @@ import { Link } from "react-router-dom"
 
 
 const AppointmentList = () => {
-
     const [appointments, setAppointments] = useState([])
-
 
     const fetchAppointmentList = async () => {
         const url = 'http://localhost:8080/api/appointments/';
@@ -23,17 +21,16 @@ const AppointmentList = () => {
         }
     }
 
-    // This function gets invoked when the cancel button is clicked
     const cancelAppointment = async (event, id) => {
         event.preventDefault();
 
         const data = {};
-        data.status = 'cancelled'; // data to be passed in to PUT request
+        data.status = 'cancelled';
 
         const url = `http://localhost:8080/api/appointments/${id}/cancel`;
         const fetchConfig = {
             method: "PUT",
-            body: JSON.stringify(data), // changes the status to canceled
+            body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -47,18 +44,16 @@ const AppointmentList = () => {
         };
     }
 
-
-    // This function gets invoked when the finish button is clicked
     const finishAppointment = async (event, id) => {
         event.preventDefault();
 
-        const data = {}; // data to be passed in to PUT request
+        const data = {};
         data.status = 'finished';
 
         const url = `http://localhost:8080/api/appointments/${id}/finish`;
         const fetchConfig = {
             method: "PUT",
-            body: JSON.stringify(data), // changes the status to finished
+            body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -66,7 +61,6 @@ const AppointmentList = () => {
 
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
-            // Removes the finished appointment from the list of appointments (but not from the db)
             setAppointments(appointments.filter((appointment) => appointment.id !== id));
         }
     };
@@ -102,16 +96,15 @@ const AppointmentList = () => {
         // }
     // };
 
-    // This function converts a string date to a JS Date object and returns a modified string date
     function makeDate(string) {
-        let date = new Date(string)
-        return `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
+        let date = new Date(string).toDateString()
+        return date
     }
 
-    // This function converts a string date to a JS Date object and returns a modified string time
     function makeTime(string) {
-        let date = new Date(string)
-        return `${date.getHours()}:${date.getMinutes()}`;
+        let time = new Date(string) // EST
+        console.log(time)
+        return `${time.getUTCHours()}:${time.getUTCMinutes()}`;
     }
 
     useEffect(() => {
@@ -119,13 +112,9 @@ const AppointmentList = () => {
         // vipStatusCheck();
     }, []);
 
-
     return (
         <div className="container">
-        <h1>Service Appointments</h1>
-            <Link to="/appointments/new" className="btn btn-md btn-primary">
-                Add an appointment
-            </Link>
+        <h1 className="text-center">Service Appointments <Link to="new" className="btn btn-sm btn-success ">+</Link></h1>
         <table className="table table-striped">
             <thead>
             <tr>
@@ -150,8 +139,8 @@ const AppointmentList = () => {
                 <td>{appointment.technician.first_name + ' ' + appointment.technician.last_name}</td>
                 <td>{appointment.reason}</td>
 
-                <td><button className="btn btn-sm btn-primary" onClick={(event) => finishAppointment(event, appointment.id)}>Finish</button></td>
-                <td><button className="btn btn-sm btn-danger" onClick={(event) => cancelAppointment(event, appointment.id)}>Cancel</button></td>
+                <td><button className="btn btn-sm btn-outline-primary" onClick={(event) => finishAppointment(event, appointment.id)}>Finish</button></td>
+                <td><button className="btn btn-sm btn-outline-danger" onClick={(event) => cancelAppointment(event, appointment.id)}>Cancel</button></td>
 
             </tr>
             );
