@@ -30,19 +30,16 @@ const SaleList = () => {
   return (
     <div className="container">
         <div className="container d-flex justify-content-around align-items-center">
-            <h1>Sales</h1>
-            <Link to="new" className="btn btn-primary">
-                Add a new sale
-            </Link>
+            <h1>Sales <Link to="new" className="btn btn-success">+</Link></h1>
         </div>
       <table className="table table-striped">
           <thead>
-          <tr>
-              <th>Salesperson</th>
-              <th>Customer</th>
-              <th>VIN</th>
-              <th>Price</th>
-          </tr>
+            <tr>
+                <th>Salesperson</th>
+                <th>Customer</th>
+                <th>VIN</th>
+                <th>Price</th>
+            </tr>
           </thead>
           <tbody>
           {sales.map(sale => {
@@ -53,7 +50,7 @@ const SaleList = () => {
                   <td>{sale.automobile.vin}</td>
                   <td>{sale.price}</td>
                   <td>
-                    <button className="btn btn-sm btn-outline-primary" onClick={(event) => deleteSale(event, sale.id)}>Delete</button>
+                    <button className="btn btn-sm btn-outline-danger" onClick={(event) => deleteSale(event, sale.id)}>Delete</button>
                   </td>
               </tr>
               );

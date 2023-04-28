@@ -55,7 +55,7 @@ const SalespersonForm = () => {
       <div className="row">
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
-            <h1>Add a new salesperson</h1>
+            <h1 className='text-center'>Add a new salesperson</h1>
             <form onSubmit={handleSubmit} id="add-salesperson-form">
               <div className="form-floating mb-3">
                 <input onChange={handleFirst_nameChange} placeholder="First name" required type="text" name="first_name" id="first_name" className="form-control" value={first_name} />
@@ -65,7 +65,7 @@ const SalespersonForm = () => {
                 <input onChange={handleLast_nameChange} placeholder="Last name" required type="text" name="last_name" id="last_name" className="form-control" value={last_name} />
                 <label htmlFor="fabric">Last name</label>
               </div>
-              <button className="btn btn-primary">Add</button>
+              <button className="btn btn-success w-100">Add</button>
             </form>
           </div>
         </div>

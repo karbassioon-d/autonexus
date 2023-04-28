@@ -32,17 +32,14 @@ const ModelList = () => {
   return (
     <div className="container">
       <div className="container d-flex justify-content-around align-items-center">
-          <h1>Models</h1>
-          <Link to="new" className="btn btn-primary">
-              Add a new model
-          </Link>
+          <h1>Models <Link to="new" className="btn btn-success">+</Link></h1>
       </div>
       <table className="table table-striped">
         <thead>
-        <tr>
-            <th>Name</th>
-            <th>Picture</th>
-        </tr>
+          <tr>
+              <th>Name</th>
+              <th>Picture</th>
+          </tr>
         </thead>
         <tbody>
         {models.map(model => {
@@ -52,7 +49,7 @@ const ModelList = () => {
                 <td>{model.manufacturer.name}</td>
                 <td><img src={model.picture_url} style={{ width:"200px" }} /></td>
                 <td>
-                  <button className="btn btn-sm btn-outline-primary" onClick={(event) => deleteModel(event, model.id)}>Delete</button>
+                  <button className="btn btn-sm btn-outline-danger" onClick={(event) => deleteModel(event, model.id)}>Delete</button>
                 </td>
             </tr>
             );

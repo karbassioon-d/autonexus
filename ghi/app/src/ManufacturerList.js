@@ -29,17 +29,15 @@ const SalespeopleList = () => {
 
   return (
     <div className="container">
-        <div className="container d-flex justify-content-around align-items-center">
-            <h1>Manufacturers</h1>
-            <Link to="new" className="btn btn-primary">
-                Add a new manufacturer
-            </Link>
+        <div className="container d-flex justify-content-center align-items-center">
+            <h1>Manufacturers <Link to="new" className="btn btn-success">+</Link> </h1>
+
         </div>
       <table className="table table-striped">
           <thead>
-          <tr>
-              <th>Name</th>
-          </tr>
+            <tr>
+                <th>Name</th>
+            </tr>
           </thead>
           <tbody>
           {manufacturers.map(manufacturer => {
@@ -47,7 +45,7 @@ const SalespeopleList = () => {
               <tr key={manufacturer.id} value={manufacturer.id} >
                   <td>{manufacturer.name}</td>
                   <td className="d-flex justify-content-around">
-                    <button className="btn btn-sm btn-outline-primary" onClick={(event) => deleteManufacturer(event, manufacturer.id)}>Delete</button>
+                    <button className="btn btn-sm btn-outline-danger" onClick={(event) => deleteManufacturer(event, manufacturer.id)}>Delete</button>
                   </td>
               </tr>
               );

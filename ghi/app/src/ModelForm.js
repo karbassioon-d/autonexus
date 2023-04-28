@@ -73,7 +73,7 @@ const ModelForm = () => {
       <div className="row">
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
-            <h1>Add a new model</h1>
+            <h1 className='text-center'>Add a new model</h1>
             <form onSubmit={handleSubmit} id="add-model-form">
               <div className="form-floating mb-3">
                 <input onChange={handleNameChange} placeholder="Name" required type="text" name="name" id="name" className="form-control" value={name} />
@@ -95,7 +95,7 @@ const ModelForm = () => {
                     })}
                 </select>
               </div>
-              <button className="btn btn-primary">Add</button>
+              <button className="btn btn-success w-100">Add</button>
             </form>
           </div>
         </div>

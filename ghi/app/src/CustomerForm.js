@@ -70,7 +70,7 @@ const CustomerForm = () => {
           <div className="row">
             <div className="offset-3 col-6">
               <div className="shadow p-4 mt-4">
-                <h1>Add a new customer</h1>
+                <h1 className='text-center'>Add a new customer</h1>
                 <form onSubmit={handleSubmit} id="add-customer-form">
                   <div className="form-floating mb-3">
                     <input onChange={handleFirst_nameChange} placeholder="First name" required type="text" name="first_name" id="first_name" className="form-control" value={first_name} />
@@ -88,7 +88,7 @@ const CustomerForm = () => {
                     <input onChange={handlePhone_numberChange} placeholder="Phone number" required type="tel" name="phone_number" id="phone_number" className="form-control" value={phone_number} />
                     <label htmlFor="fabric">Phone number</label>
                   </div>
-                  <button className="btn btn-primary">Add</button>
+                  <button className="btn btn-success w-100">Add</button>
                 </form>
               </div>
             </div>
