@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-
 const TechnicianForm = () => {
-
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
@@ -20,10 +18,8 @@ const handleSubmit = async (event) => {
   event.preventDefault();
 
   const data = {};
-
   data.first_name = firstName;
   data.last_name = lastName;
-
   const shoesUrl = `http://localhost:8080/api/technicians/`;
   const fetchConfig = {
     method: "POST",
@@ -39,7 +35,6 @@ const handleSubmit = async (event) => {
       setLastName('');
   }
 }
-
 
   return (
     <div className="row">
