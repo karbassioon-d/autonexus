@@ -30,7 +30,7 @@ const SalespeopleList = () => {
   return (
     <div className="container">
         <div className="container d-flex justify-content-around align-items-center">
-            <h1>Salespeople <Link to="new" className="btn btn-success">+</Link></h1>
+            <h1>Salespeople <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
         </div>
       <table className="table table-striped">
           <thead>

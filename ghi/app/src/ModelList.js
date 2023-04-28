@@ -32,12 +32,13 @@ const ModelList = () => {
   return (
     <div className="container">
       <div className="container d-flex justify-content-around align-items-center">
-          <h1>Models <Link to="new" className="btn btn-success">+</Link></h1>
+          <h1>Models <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
       </div>
       <table className="table table-striped">
         <thead>
           <tr>
               <th>Name</th>
+              <th>Manufacturer</th>
               <th>Picture</th>
           </tr>
         </thead>
