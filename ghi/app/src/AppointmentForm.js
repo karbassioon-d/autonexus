@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from "react-router-dom"
 
-
-const CreateAppointmentForm = () => {
+const AppointmentForm = () => {
     const [technicians, setTechnicians] = useState([]);
+    const [customers, setCustomers] = useState([]);
 
-    // fetch data from list of technicians
-    const fetchData = async () => {
+
+    const fetchTechniciansData = async () => {
         const url = 'http://localhost:8080/api/technicians/';
         const response = await fetch(url);
 
         if (response.ok) {
             const data = await response.json()
             setTechnicians(data.technicians)
+        }
+    }
+
+    const fetchCustomerData = async () => {
+        const url = 'http://localhost:8090/api/customers/';
+        const response = await fetch(url);
+
+        if (response.ok) {
+            const data = await response.json()
+            setCustomers(data.customers)
         }
     }
 
@@ -59,6 +68,7 @@ const CreateAppointmentForm = () => {
         data.date_time = date + ' ' + time
         data.technician = technician;
         data.reason = reason;
+        console.log('here is how the data is getting posted', data) // Form submits UTC timezone
 
         const appointmentsUrl = `http://localhost:8080/api/appointments/`;
         const fetchConfig = {
@@ -81,17 +91,15 @@ const CreateAppointmentForm = () => {
 
 
     useEffect(() => {
-        fetchData();
+        fetchTechniciansData();
+        fetchCustomerData();
     }, []);
 
     return (
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
-                    <h1>Make an appointment</h1>
-                    <Link to="/appointments" className="btn btn-lg btn-primary">
-                        View Appointment List
-                    </Link>
+                    <h1 className="text-center">Create an appointment</h1>
                     <form onSubmit={handleSubmit} id="create-appointment-form">
 
                     <div className="form-floating mb-3">
@@ -100,8 +108,16 @@ const CreateAppointmentForm = () => {
                     </div>
 
                     <div className="form-floating mb-3">
-                        <input onChange={handleCustomerChange} placeholder="Customer" required type="text" name="Customer" id="Customer" className="form-control" value={customer}/>
-                        <label htmlFor="last_name">Customer</label>
+                        <select onChange={handleCustomerChange} required name="Customer" id="v" className="form-select" value={customer}>
+                        <option value=''>Choose a customer</option>
+                        {customers.map(customer => {
+                            return (
+                                <option key={customer.id} value={customer.iid}>
+                                    {customer.first_name + ' ' + customer.last_name}
+                                </option>
+                                );
+                            })}
+                        </select>
                     </div>
 
                     <div className="form-floating mb-3">
@@ -128,11 +144,12 @@ const CreateAppointmentForm = () => {
                     </div>
 
                     <div className="form-floating mb-3">
+
                         <input onChange={handleReasonChange} placeholder="Reason" required type="text" name="Reason" id="Reason" className="form-control" value={reason}/>
                         <label htmlFor="last_name">Reason</label>
                     </div>
 
-                    <button className="btn btn-primary">Create</button>
+                    <button type="submit" className="btn btn-success w-100">Create</button>
                     </form>
                 </div>
             </div>
@@ -140,4 +157,4 @@ const CreateAppointmentForm = () => {
     )
 }
 
-export default CreateAppointmentForm
+export default AppointmentForm

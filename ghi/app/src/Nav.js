@@ -38,7 +38,7 @@ function Nav() {
               <NavLink className="nav-link active" aria-current="page" to="/appointments">Appointments</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/appointments/history">Appointment Service History</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/appointments/history">Appointment History</NavLink>
             </li>
             <li className='nav-item dropdown'>
               <a className="nav-link dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

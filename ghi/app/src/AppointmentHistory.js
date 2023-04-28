@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from "react-router-dom"
 
 
 const AppointmentHistory = () => {
-
     const [appointments, setAppointments] = useState([])
     const [search, setSearch] = useState('')
-
 
     const fetchAppointmentList = async () => {
         const url = 'http://localhost:8080/api/appointments/';
@@ -14,19 +11,15 @@ const AppointmentHistory = () => {
 
         if (response.ok) {
             const data = await response.json();
-            // shows all appointments that have ever been made
             setAppointments(data.appointments.filter((appointment) => appointment.vin.startsWith(search)))
         }
     }
 
-
-    // This function converts a string date to a JS Date object and returns a modified string date
     function makeDate(string) {
         let date = new Date(string)
         return `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
     }
 
-    // This function converts a string date to a JS Date object and returns a modified string time
     function makeTime(string) {
         let date = new Date(string)
         return `${date.getHours()}:${date.getMinutes()}`;
@@ -41,11 +34,11 @@ const AppointmentHistory = () => {
         fetchAppointmentList();
     }, [search]);
 
-    return ( // conditional if appointments === 0, hide table and show 'No appointments that start with ${search}
+    return (
         <div className="container">
-        <h1>Service Appointment History</h1>
+        <h1 className="text-center">Appointment History</h1>
         <form>
-            <input onChange={handleChange} placeholder='Search by VIN...' required type="text" name="VIN" id="VIN" className="form-control" value={search}/>
+            <input onChange={handleChange} placeholder='Filter by VIN...' required type="text" name="VIN" id="VIN" className="form-control" value={search}/>
         </form>
 
         <table className="table table-striped">

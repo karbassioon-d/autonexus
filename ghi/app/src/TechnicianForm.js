@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom"
 
 
 const TechnicianForm = () => {
@@ -46,10 +45,7 @@ const handleSubmit = async (event) => {
     <div className="row">
         <div className="offset-3 col-6">
           <div className="shadow p-4 mt-4">
-            <h1>Add a Technician</h1>
-            <Link to="/technicians" className="btn btn-lg btn-primary">
-                View Technician List
-            </Link>
+            <h1 className="text-center">Add a Technician</h1>
             <form onSubmit={handleSubmit} id="add-technician-form">
 
               <div className="form-floating mb-3">
@@ -62,7 +58,7 @@ const handleSubmit = async (event) => {
                 <label htmlFor="last_name">Last name</label>
               </div>
 
-              <button className="btn btn-primary">Add</button>
+              <button className="btn btn-success w-100">Add</button>
             </form>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from "react-router-dom"
+
 
 const AutomobileForm = () => {
     const [models, setModels] = useState([]);
@@ -71,10 +71,7 @@ const AutomobileForm = () => {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
-                    <h1>Add an automobile</h1>
-                    <Link to="/automobiles" className="btn btn-lg btn-primary">
-                        View Automobile List
-                    </Link>
+                    <h1 className="text-center">Add an automobile</h1>
                     <form onSubmit={handleSubmit} id="create-appointment-form">
 
                     <div className="form-floating mb-3">
@@ -105,7 +102,7 @@ const AutomobileForm = () => {
                         </select>
                     </div>
 
-                    <button className="btn btn-primary">Create</button>
+                    <button className="btn btn-success w-100">Create</button>
                     </form>
                 </div>
             </div>
