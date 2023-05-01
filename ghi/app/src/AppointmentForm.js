@@ -12,7 +12,7 @@ const AppointmentForm = () => {
             const data = await response.json()
             setTechnicians(data.technicians)
         }
-    }
+    };
 
     const fetchCustomerData = async () => {
         const url = 'http://localhost:8090/api/customers/';
