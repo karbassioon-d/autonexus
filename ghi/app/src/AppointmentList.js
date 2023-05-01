@@ -18,7 +18,7 @@ const AppointmentList = () => {
         event.preventDefault();
 
         const data = {};
-        data.status = 'cancelled';
+        data.status = 'canceled';
         const url = `http://localhost:8080/api/appointments/${id}/cancel`;
         const fetchConfig = {
             method: "PUT",
@@ -75,37 +75,40 @@ const AppointmentList = () => {
 
     return (
         <div className="container">
-        <h1 className="text-center">Appointments <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
-        <table className="table table-striped">
-            <thead>
-            <tr>
-                <th>VIN</th>
-                <th>Customer</th>
-                <th>VIP?</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Technician</th>
-                <th>Reason</th>
-            </tr>
-            </thead>
-            <tbody>
-            {appointments.map((appointment) => {
-            return (
-            <tr key={appointment.id} value={appointment.id}>
-                <td>{appointment.vin}</td>
-                <td>{appointment.customer}</td>
-                <td>{appointment.vip_status ? 'Yes': 'No'}</td>
-                <td>{makeDate(appointment.date_time)}</td>
-                <td>{makeTime(appointment.date_time)}</td>
-                <td>{appointment.technician.first_name + ' ' + appointment.technician.last_name}</td>
-                <td>{appointment.reason}</td>
-                <td><button className="btn btn-sm btn-outline-primary" onClick={(event) => finishAppointment(event, appointment.id)}>Finish</button></td>
-                <td><button className="btn btn-sm btn-outline-danger" onClick={(event) => cancelAppointment(event, appointment.id)}>Cancel</button></td>
-            </tr>
-            );
-            })}
-            </tbody>
-        </table>
+            <div className="d-flex justify-content-center align-items-center">
+                <img style={{width:"5%"}} src={process.env.PUBLIC_URL + '/calendar.svg'} />
+                <h1 className="text-center">Appointments <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
+            </div>
+            <table className="table table-striped">
+                <thead>
+                <tr>
+                    <th>VIN</th>
+                    <th>Customer</th>
+                    <th>VIP?</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Technician</th>
+                    <th>Reason</th>
+                </tr>
+                </thead>
+                <tbody>
+                {appointments.map((appointment) => {
+                return (
+                <tr key={appointment.id} value={appointment.id}>
+                    <td>{appointment.vin}</td>
+                    <td>{appointment.customer}</td>
+                    <td>{appointment.vip_status ? 'Yes': 'No'}</td>
+                    <td>{makeDate(appointment.date_time)}</td>
+                    <td>{makeTime(appointment.date_time)}</td>
+                    <td>{appointment.technician.first_name + ' ' + appointment.technician.last_name}</td>
+                    <td>{appointment.reason}</td>
+                    <td><button className="btn btn-sm btn-outline-primary" onClick={(event) => finishAppointment(event, appointment.id)}>Finish</button></td>
+                    <td><button className="btn btn-sm btn-outline-danger" onClick={(event) => cancelAppointment(event, appointment.id)}>Cancel</button></td>
+                </tr>
+                );
+                })}
+                </tbody>
+            </table>
         </div>
     )
 }

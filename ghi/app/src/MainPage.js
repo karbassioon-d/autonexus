@@ -1,6 +1,7 @@
 function MainPage() {
   return (
     <div className="d-flex flex-column px-4 py-5 my-5 text-center justify-content-center align-items-center" style={{height:"80vh"}} >
+      {/* <video className="object-fit-cover" src={process.env.PUBLIC_URL + '/car-video.mp4'} autoPlay loop muted /> */}
       <img className="mb-4" style={{width:"70%"}} src={process.env.PUBLIC_URL + '/autonexus-high-res-black.png'}/>
       <div className="col-lg-6 mx-auto">
         <p className="lead mb-4">

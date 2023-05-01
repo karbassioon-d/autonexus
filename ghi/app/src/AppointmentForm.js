@@ -93,7 +93,10 @@ const AppointmentForm = () => {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
-                    <h1 className="text-center">Create an appointment</h1>
+                    <div className="d-flex" >
+                        <h1 className="text-center">Create an appointment</h1>
+                        <img src={process.env.PUBLIC_URL + '/car.svg'} style={{height:"35%", width:"35%"}} />
+                    </div>
                     <form onSubmit={handleSubmit} id="create-appointment-form">
 
                     <div className="form-floating mb-3">
@@ -145,7 +148,9 @@ const AppointmentForm = () => {
 
                     <button type="submit" className="btn btn-success w-100">Create</button>
                     </form>
+
                 </div>
+
             </div>
         </div>
     )
