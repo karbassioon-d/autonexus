@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from "react-router-dom";
 
 const ManufacturerForm = () => {
-  const navigate = useNavigate();
-
   const [name, setName] = useState('');
 
   const handleNameChange = (event) => {
@@ -31,7 +28,6 @@ const ManufacturerForm = () => {
         if (response.ok) {
             setName('');
         }
-        navigate('/manufacturers')
 
     } catch (error) {
         console.error(error);

@@ -69,6 +69,7 @@ const AppointmentList = () => {
         return `${time.getUTCHours()}:${minutes}`;
     }
 
+
     useEffect(() => {
         fetchAppointmentList();
     }, []);

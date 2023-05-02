@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 
 const AutomobileForm = () => {
     const [models, setModels] = useState([]);
+    const colors = ['White', 'Black', 'Gray', 'Silver', 'Blue', 'Red', 'Brown', 'Green', 'Orange', 'Yellow', 'Purple'];
 
     const [color, setColor] = useState('');
     const [year, setYear] = useState('');
@@ -74,8 +75,16 @@ const AutomobileForm = () => {
                     <form onSubmit={handleSubmit} id="create-appointment-form">
 
                     <div className="form-floating mb-3">
-                        <input onChange={handleColorChange} placeholder="Color" required type="text" name="Color" id="CustColoromer" className="form-control" value={color}/>
-                        <label htmlFor="last_name">Color</label>
+                    <select onChange={handleColorChange} required name="Color" id="Color" className="form-select" value={color}>
+                        <option value=''>Choose a color</option>
+                        {colors.map(color => {
+                            return (
+                                <option key={color} value={color}>
+                                    {color}
+                                </option>
+                                );
+                            })}
+                        </select>
                     </div>
 
                     <div className="form-floating mb-3">
