@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
+import wrenchSVG from './icons/wrench.svg'
 
 const TechnicianList = () => {
   const [technicians, setTechnicians] = useState([])
@@ -29,10 +30,10 @@ const TechnicianList = () => {
 
   return (
     <div className="container">
-      <h1 className="text-center">Technicians <Link to="new" className="btn btn-sm btn-success ">
-                +
-            </Link></h1>
-
+      <div className="container d-flex justify-content-center align-items-center">
+        <img style={{width:"3%", maxWidth:"50px"}} src={wrenchSVG} />
+        <h1 style={{marginLeft:"15px"}} className="text-center">Technicians <Link to="new" className="btn btn-sm btn-success ">+</Link></h1>
+      </div>
       <table className="table table-striped">
         <thead>
           <tr>

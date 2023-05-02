@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
+import customerSVG from './icons/customer.svg'
 
 const CustomerList = () => {
     const [customers, setCustomers] = useState([]);
@@ -29,8 +30,9 @@ const CustomerList = () => {
 
     return (
       <div className="container">
-          <div className="container d-flex justify-content-around align-items-center">
-              <h1>Customers <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
+          <div className="container d-flex justify-content-center align-items-center">
+            <img style={{width:"6%", maxWidth:"50px"}} src={customerSVG} />
+            <h1 style={{marginLeft:"20px"}}>Customers <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
           </div>
         <table className="table table-striped">
             <thead>

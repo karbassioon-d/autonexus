@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom"
+import calendarSVG from './icons/calendars.svg'
 
 const AppointmentList = () => {
     const [appointments, setAppointments] = useState([])
@@ -77,8 +78,8 @@ const AppointmentList = () => {
     return (
         <div className="container">
             <div className="d-flex justify-content-center align-items-center">
-                <img style={{width:"5%"}} src={process.env.PUBLIC_URL + '/calendar.svg'} />
-                <h1 className="text-center">Appointments <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
+                <img style={{width:"5%"}} src={calendarSVG} />
+                <h1 style={{marginLeft:"10px"}} className="text-center">Appointments <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
             </div>
             <table className="table table-striped">
                 <thead>

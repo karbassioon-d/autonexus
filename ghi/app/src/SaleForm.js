@@ -105,7 +105,7 @@ const SaleForm = () => {
           <div className="row">
             <div className="offset-3 col-6">
               <div className="shadow p-4 mt-4">
-                <h1 className='text-center'>Record a new sale</h1>
+                <h1 className='text-center'>Record a sale</h1>
                 <form onSubmit={handleSubmit} id="record-sale-form">
                     <div className="mb-3">
                         <select onChange={handleSalespersonChange} required name="salesperson" id="salesperson" className="form-select" value={salesperson} >

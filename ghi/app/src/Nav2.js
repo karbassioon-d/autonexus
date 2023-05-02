@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom';
 
 function Nav2() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark bg-success d-flex flex-row">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark bg-success d-flex flex-row" style={{zIndex:"3"}}>
+      <div className="container-fluid" >
         <NavLink className="navbar-brand" style={{width:"3%", minWidth:"70px"}} to="/"><img style={{width:"5%", minWidth:"70px"}} src={process.env.PUBLIC_URL + '/autonexus-favicon.png'} /></NavLink>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@ function Nav2() {
             </li>
 
             <li className='nav-item dropdown'>
-              <a className="nav-link dropdown-toggle active" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a className="nav-link dropdown-toggle active" type="button" id="dropdownMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Employees
               </a>
               <ul className='dropdown-menu dropdown-menu-dark'aria-labelledby="navbarDarkDropdownMenuLink" >
@@ -72,7 +72,7 @@ function Nav2() {
               <NavLink className="nav-link active" aria-current="page" to="/sale">Sales</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/sale/new">Record a new Sale</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/sale/new">Record a Sale</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link active" aria-current="page" to="/appointments">Appointments</NavLink>

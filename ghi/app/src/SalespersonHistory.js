@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import historySVG from './icons/history.svg'
 
 const SalespersonHistory = () => {
     const [salespeople, setSalespeople] = useState([]);
@@ -38,8 +39,9 @@ const SalespersonHistory = () => {
     }, [])
     return (
       <div className="container">
-          <div className="container d-flex justify-content-around align-items-center">
-              <h1>Salesperson History</h1>
+          <div className="container d-flex justify-content-center align-items-center">
+            <img style={{width:"6%", maxWidth:"50px"}} src={historySVG} />
+            <h1 style={{marginLeft:"20px"}}>Salesperson History</h1>
           </div>
           <div className="mb-3">
             <select onChange={handleSalespersonChange} required name="salesperson" id="salesperson" className="form-select" value={salesperson} >

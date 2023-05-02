@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
+import sportscarSVG from './icons/sport.svg'
 
 const ModelList = () => {
   const [models, setModels] = useState([]);
@@ -31,8 +32,9 @@ const ModelList = () => {
 
   return (
     <div className="container">
-      <div className="container d-flex justify-content-around align-items-center">
-          <h1>Models <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
+      <div className="container d-flex justify-content-center align-items-center">
+          <img style={{width:"5%"}} src={sportscarSVG} />
+          <h1 style={{marginLeft:"20px"}}>Models <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
       </div>
       <table className="table table-striped">
         <thead>

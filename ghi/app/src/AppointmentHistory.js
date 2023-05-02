@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import historySVG from './icons/calendar2.svg'
 
 const AppointmentHistory = () => {
     const [appointments, setAppointments] = useState([])
@@ -39,7 +40,10 @@ const AppointmentHistory = () => {
 
     return (
         <div className="container">
-        <h1 className="text-center">Appointment History</h1>
+            <div className="container d-flex justify-content-center align-items-center">
+            <img style={{width:"6%", maxWidth:"50px"}} src={historySVG} />
+                <h1 style={{marginLeft:"12px"}} className="text-center">Appointment History</h1>
+            </div>
         <form>
             <input onChange={handleChange} placeholder='Filter by VIN...' required type="text" name="VIN" id="VIN" className="form-control" value={search}/>
         </form>

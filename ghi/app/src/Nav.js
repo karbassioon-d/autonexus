@@ -61,7 +61,7 @@ function Nav() {
                   <NavLink className="dropdown-item" aria-current="page" to="/customers/new">Add a Customer</NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" aria-current="page" to="/sale/new">Record a new Sale</NavLink>
+                  <NavLink className="dropdown-item" aria-current="page" to="/sale/new">Record a Sale</NavLink>
                 </li>
                 <li>
                   <NavLink className="dropdown-item" aria-current="page" to="/technicians/new">Add a Technician</NavLink>
