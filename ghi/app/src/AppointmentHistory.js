@@ -63,6 +63,7 @@ const AppointmentHistory = () => {
             </thead>
             <tbody>
             {appointments.map((appointment) => {
+                console.log(appointment)
             return (
             <tr key={appointment.id} value={appointment.id}>
                 <td>{appointment.vin}</td>
@@ -72,6 +73,7 @@ const AppointmentHistory = () => {
                 <td>{makeTime(appointment.date_time)}</td>
                 <td>{appointment.technician.first_name + ' ' + appointment.technician.last_name}</td>
                 <td>{appointment.reason}</td>
+                {/* style={{color:"green"}} */}
                 <td>{appointment.status}</td>
             </tr>
             );

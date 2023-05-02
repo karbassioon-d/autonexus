@@ -11,7 +11,7 @@ const AppointmentList = () => {
 
         if (response.ok) {
             const data = await response.json();
-            setAppointments(data.appointments.filter((appointment) => appointment.status === "created"))
+            setAppointments(data.appointments.filter((appointment) => appointment.status === "Scheduled"))
         }
     }
 
@@ -19,7 +19,9 @@ const AppointmentList = () => {
         event.preventDefault();
 
         const data = {};
-        data.status = 'canceled';
+        data.status = 'Canceled';
+        data.status_color = 'red';
+
         const url = `http://localhost:8080/api/appointments/${id}/cancel`;
         const fetchConfig = {
             method: "PUT",
@@ -40,7 +42,9 @@ const AppointmentList = () => {
         event.preventDefault();
 
         const data = {};
-        data.status = 'finished';
+        data.status = 'Finished';
+        data.status_color = 'blue';
+        console.log('this is  data', data)
         const url = `http://localhost:8080/api/appointments/${id}/finish`;
         const fetchConfig = {
             method: "PUT",
@@ -53,6 +57,7 @@ const AppointmentList = () => {
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
             setAppointments(appointments.filter((appointment) => appointment.id !== id));
+            console.log(response)
         }
     };
 

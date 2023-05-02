@@ -16,24 +16,24 @@ function Nav2() {
               </a>
               <ul className='dropdown-menu dropdown-menu-dark'aria-labelledby="navbarDarkDropdownMenuLink" >
                 <li className="nav-item dropdown">
-                  <NavLink className="dropdown-item" aria-current="page" to="/manufacturers">Manufacturers</NavLink>
+                  <NavLink className="dropdown-item" aria-current="page" to="/manufacturers/">Manufacturers</NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" aria-current="page" to="/manufacturers/new">Add a Manufacturer</NavLink>
-                </li>
-                <div className="dropdown-divider"></div>
-                <li>
-                  <NavLink className="dropdown-item" aria-current="page" to="/models">Models</NavLink>
-                </li>
-                <li>
-                  <NavLink className="dropdown-item" aria-current="page" to="/models/new">Add a Model</NavLink>
+                  <NavLink className="dropdown-item" aria-current="page" to="/manufacturers/new/">Add a Manufacturer</NavLink>
                 </li>
                 <div className="dropdown-divider"></div>
                 <li>
-                  <NavLink className="dropdown-item" aria-current="page" to="/automobiles">Automobiles</NavLink>
+                  <NavLink className="dropdown-item" aria-current="page" to="/models/">Models</NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" aria-current="page" to="/automobiles/new">Add an Automobile</NavLink>
+                  <NavLink className="dropdown-item" aria-current="page" to="/models/new/">Add a Model</NavLink>
+                </li>
+                <div className="dropdown-divider"></div>
+                <li>
+                  <NavLink className="dropdown-item" aria-current="page" to="/automobiles/">Automobiles</NavLink>
+                </li>
+                <li>
+                  <NavLink className="dropdown-item" aria-current="page" to="/automobiles/new/">Add an Automobile</NavLink>
                 </li>
               </ul>
             </li>
@@ -44,44 +44,44 @@ function Nav2() {
               </a>
               <ul className='dropdown-menu dropdown-menu-dark'aria-labelledby="navbarDarkDropdownMenuLink" >
                 <li>
-                  <NavLink className="dropdown-item" aria-current="page" to="/salespeople">Salespeople</NavLink>
+                  <NavLink className="dropdown-item" aria-current="page" to="/salespeople/">Salespeople</NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" aria-current="page" to="/salespeople/new">Add a Salesperson</NavLink>
+                  <NavLink className="dropdown-item" aria-current="page" to="/salespeople/new/">Add a Salesperson</NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" aria-current="page" to="/salespeople/history">Salesperson History</NavLink>
+                  <NavLink className="dropdown-item" aria-current="page" to="/salespeople/history/">Salesperson History</NavLink>
                 </li>
                 <div className="dropdown-divider"></div>
                 <li>
-                  <NavLink className="dropdown-item" aria-current="page" to="/technicians">Technicians</NavLink>
+                  <NavLink className="dropdown-item" aria-current="page" to="/technicians/">Technicians</NavLink>
                 </li>
                 <li>
-                  <NavLink className="dropdown-item" aria-current="page" to="/technicians/new">Add a Technician</NavLink>
+                  <NavLink className="dropdown-item" aria-current="page" to="/technicians/new/">Add a Technician</NavLink>
                 </li>
               </ul>
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/customers">Customers</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/customers/">Customers</NavLink>
             </li>
             <li>
-              <NavLink className="nav-link active" aria-current="page" to="/customers/new">Add a Customer</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/customers/new/">Add a Customer</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/sale">Sales</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/sale/">Sales</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/sale/new">Record a Sale</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/sale/new/">Record a Sale</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/appointments">Appointments</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/appointments/">Appointments</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/appointments/new">Create an Appointment</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/appointments/new/">Schedule an Appointment</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/appointments/history">Appointment History</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/appointments/history/">Appointment History</NavLink>
             </li>
           </ul>
           <img className="justify-content-around" alt= "" style={{width:"5%", minWidth:"70px"}} src={process.env.PUBLIC_URL + '/rotating-car.gif'} />
