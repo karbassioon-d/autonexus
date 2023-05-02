@@ -72,7 +72,7 @@ function Nav() {
               </ul>
             </li>
           </ul>
-          <img classNanme="justify-content-around" style={{width:"5%", minWidth:"70px"}} src={process.env.PUBLIC_URL + '/rotating-car.gif'} />
+          <img className="justify-content-around" style={{width:"5%", minWidth:"70px"}} src={process.env.PUBLIC_URL + '/rotating-car.gif'} />
         </div>
       </div>
     </nav>
