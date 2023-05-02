@@ -94,7 +94,7 @@ const AppointmentForm = () => {
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
                     <div className="d-flex" >
-                        <h1 className="text-center">Schedule an appointment</h1>
+                        <h1 className="text-center">Create an appointment</h1>
                         <img src={process.env.PUBLIC_URL + '/car.svg'} style={{height:"35%", width:"35%"}} />
                     </div>
                     <form onSubmit={handleSubmit} id="create-appointment-form">
