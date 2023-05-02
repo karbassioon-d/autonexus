@@ -10,7 +10,7 @@ const AppointmentList = () => {
 
         if (response.ok) {
             const data = await response.json();
-            setAppointments(data.appointments.filter((appointment) => appointment.status === "created"))
+            setAppointments(data.appointments.filter((appointment) => appointment.status === "Scheduled"))
         }
     }
 
@@ -18,7 +18,7 @@ const AppointmentList = () => {
         event.preventDefault();
 
         const data = {};
-        data.status = 'cancelled';
+        data.status = 'Canceled';
         const url = `http://localhost:8080/api/appointments/${id}/cancel`;
         const fetchConfig = {
             method: "PUT",
@@ -39,7 +39,7 @@ const AppointmentList = () => {
         event.preventDefault();
 
         const data = {};
-        data.status = 'finished';
+        data.status = 'Finished';
         const url = `http://localhost:8080/api/appointments/${id}/finish`;
         const fetchConfig = {
             method: "PUT",

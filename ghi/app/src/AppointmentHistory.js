@@ -33,6 +33,7 @@ const AppointmentHistory = () => {
         return `${time.getUTCHours()}:${minutes}`;
     }
 
+
     useEffect(() => {
         fetchAppointmentList();
     }, [search]);
@@ -68,6 +69,7 @@ const AppointmentHistory = () => {
                 <td>{makeTime(appointment.date_time)}</td>
                 <td>{appointment.technician.first_name + ' ' + appointment.technician.last_name}</td>
                 <td>{appointment.reason}</td>
+                {/* style={{color:"green"}} */}
                 <td>{appointment.status}</td>
             </tr>
             );
