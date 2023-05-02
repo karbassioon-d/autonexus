@@ -33,7 +33,6 @@ const AppointmentHistory = () => {
         return `${time.getUTCHours()}:${minutes}`;
     }
 
-
     useEffect(() => {
         fetchAppointmentList();
     }, [search]);
@@ -60,6 +59,7 @@ const AppointmentHistory = () => {
             </thead>
             <tbody>
             {appointments.map((appointment) => {
+                console.log(appointment)
             return (
             <tr key={appointment.id} value={appointment.id}>
                 <td>{appointment.vin}</td>

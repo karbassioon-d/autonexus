@@ -21,7 +21,8 @@ class AppointmentEncoder(ModelEncoder):
         "vin",
         "technician",
         "vip_status",
-        "id"
+        "id",
+        "status_color"
     ]
     encoders = {
         "technician": TechnicianEncoder()
