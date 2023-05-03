@@ -44,7 +44,6 @@ const AppointmentList = () => {
         const data = {};
         data.status = 'Finished';
         data.status_color = 'blue';
-        console.log('this is  data', data)
         const url = `http://localhost:8080/api/appointments/${id}/finish`;
         const fetchConfig = {
             method: "PUT",
@@ -57,7 +56,6 @@ const AppointmentList = () => {
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
             setAppointments(appointments.filter((appointment) => appointment.id !== id));
-            console.log(response)
         }
     };
 
@@ -80,44 +78,58 @@ const AppointmentList = () => {
         fetchAppointmentList();
     }, []);
 
-    return (
-        <div className="container">
-            <div className="d-flex justify-content-center align-items-center">
-                <img style={{width:"5%"}} src={calendarSVG} />
-                <h1 style={{marginLeft:"10px"}} className="text-center">Appointments <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
+    if (appointments.length === 0) {
+        return (
+            <div className="container">
+                <div className="d-flex justify-content-center align-items-center">
+                    <img style={{width:"5%"}} src={calendarSVG} />
+                    <h1 style={{marginLeft:"10px"}} className="text-center">Appointments <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
+                </div>
+                <h2 className="mt-2 mb-2" style={{textAlign:"center"}}>No appointments scheduled</h2>
             </div>
-            <table className="table table-striped">
-                <thead>
-                <tr>
-                    <th>VIN</th>
-                    <th>Customer</th>
-                    <th>VIP?</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Technician</th>
-                    <th>Reason</th>
-                </tr>
-                </thead>
-                <tbody>
-                {appointments.map((appointment) => {
-                return (
-                <tr key={appointment.id} value={appointment.id}>
-                    <td>{appointment.vin}</td>
-                    <td>{appointment.customer}</td>
-                    <td>{appointment.vip_status ? 'Yes': 'No'}</td>
-                    <td>{makeDate(appointment.date_time)}</td>
-                    <td>{makeTime(appointment.date_time)}</td>
-                    <td>{appointment.technician.first_name + ' ' + appointment.technician.last_name}</td>
-                    <td>{appointment.reason}</td>
-                    <td><button className="btn btn-sm btn-outline-primary" onClick={(event) => finishAppointment(event, appointment.id)}>Finish</button></td>
-                    <td><button className="btn btn-sm btn-outline-danger" onClick={(event) => cancelAppointment(event, appointment.id)}>Cancel</button></td>
-                </tr>
-                );
-                })}
-                </tbody>
-            </table>
-        </div>
-    )
+
+        )
+    } else {
+        return (
+            <div className="container">
+                <div className="d-flex justify-content-center align-items-center">
+                    <img style={{width:"5%"}} src={calendarSVG} />
+                    <h1 style={{marginLeft:"10px"}} className="text-center">Appointments <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
+                </div>
+                <table className="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>VIN</th>
+                        <th>Customer</th>
+                        <th>VIP?</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Technician</th>
+                        <th>Reason</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {appointments.map((appointment) => {
+                    return (
+                    <tr key={appointment.id} value={appointment.id}>
+                        <td>{appointment.vin}</td>
+                        <td>{appointment.customer}</td>
+                        <td>{appointment.vip_status ? 'Yes': 'No'}</td>
+                        <td>{makeDate(appointment.date_time)}</td>
+                        <td>{makeTime(appointment.date_time)}</td>
+                        <td>{appointment.technician.first_name + ' ' + appointment.technician.last_name}</td>
+                        <td>{appointment.reason}</td>
+                        <td><button className="btn btn-sm btn-outline-primary" onClick={(event) => finishAppointment(event, appointment.id)}>Finish</button></td>
+                        <td><button className="btn btn-sm btn-outline-danger" onClick={(event) => cancelAppointment(event, appointment.id)}>Cancel</button></td>
+                    </tr>
+                    );
+                    })}
+                    </tbody>
+                </table>
+            </div>
+        )
+    }
+
 }
 
 export default AppointmentList

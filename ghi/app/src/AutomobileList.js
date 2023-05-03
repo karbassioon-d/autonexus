@@ -57,7 +57,6 @@ const AutomobileList = () => {
                 <td>{automobile.model.manufacturer.name}</td>
                 <td>{automobile.model.name}</td>
                 <td>{automobile.sold ? 'Yes': 'No'}</td>
-                {/* <td>{sales.includes(automobile.vin) ? 'Yes': 'No'}</td> */}
             </tr>
             );
             })}

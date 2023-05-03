@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from "react-router-dom";
 
 const SaleForm = () => {
-    const navigate = useNavigate();
-
     const [salespeople, setSalespeople] = useState([]);
     const [customers, setCustomers] = useState([]);
     const [vins, setVins] = useState([]);
@@ -43,7 +40,7 @@ const SaleForm = () => {
     const handleSalespersonChange = (event) => {
         const value = event.target.value;
         setSalesperson(value);
-      }
+    }
 
     const handleCustomerChange = (event) => {
         const value = event.target.value;
@@ -60,6 +57,25 @@ const SaleForm = () => {
         setPrice(value);
     }
 
+    const updateSold = async (vin) => {
+        const data = {};
+        data.sold = true;
+
+        const url = `http://localhost:8100/api/automobiles/${vin}/`;
+        const fetchConfig = {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+
+        const response = await fetch(url, fetchConfig);
+        if (response.ok) {
+            const newStatus = await response.json();
+        };
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -68,7 +84,7 @@ const SaleForm = () => {
         data.price = price;
         data.salesperson_id = salesperson;
         data.customer_id = customer;
-        data.automobile_id = vin;
+        data.automobile = vin;
 
         const saleUrl = 'http://localhost:8090/api/sale/'
         const fetchConfig = {
@@ -82,12 +98,12 @@ const SaleForm = () => {
         try {
             const response = await fetch(saleUrl, fetchConfig);
             if (response.ok) {
-                setSalespeople('');
+                setSalesperson('');
                 setCustomer('');
                 setVin('');
                 setPrice('');
+                updateSold(vin)
             }
-            navigate('/sale')
 
         } catch (error) {
             console.error(error);
@@ -136,7 +152,7 @@ const SaleForm = () => {
                             <option value="">Choose an automobile VIN</option>
                             {vins.map((vin) => {
                                 return (
-                                    <option key={vin.id} value={vin.id}>
+                                    <option key={vin.id} value={vin.vin}>
                                         {vin.vin}
                                     </option>
                                 );

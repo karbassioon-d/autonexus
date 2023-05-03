@@ -84,7 +84,8 @@ function Nav2() {
               <NavLink className="nav-link active" aria-current="page" to="/appointments/history/">Appointment History</NavLink>
             </li>
           </ul>
-          <img className="justify-content-around" alt= "" style={{width:"5%", minWidth:"70px"}} src={process.env.PUBLIC_URL + '/rotating-car.gif'} />
+          <img className="justify-content-around" alt="" style={{width:"5%", minWidth:"70px"}} src={process.env.PUBLIC_URL + '/rotating-car-1.gif'} />
+          
         </div>
       </div>
     </nav>
