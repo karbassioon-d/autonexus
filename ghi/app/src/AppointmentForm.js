@@ -111,21 +111,21 @@ const AppointmentForm = () => {
                     <form onSubmit={handleSubmit} id="create-appointment-form">
 
                     <div className="form-floating mb-3">
-                        <input onChange={handleAutomobileVINChange} placeholder="Automobile VIN" required type="text" name="Automobile_VIN" id="Automobile_VIN" className="form-control" value={automobileVIN}/>
-                        <label htmlFor="first_name">Automobile VIN</label>
-                    </div>
-
-                    <div className="form-floating mb-3">
-                        <select onChange={handleCustomerChange} required name="Customer" id="v" className="form-select" value={customer}>
+                        <select onChange={handleCustomerChange} required name="Customer" id="Customer" className="form-select" value={customer}>
                         <option value=''>Choose a customer</option>
                         {customers.map(customer => {
                             return (
                                 <option key={customer.id} value={customer.iid}>
-                                    {customer.first_name + ' ' + customer.last_name}
+                                    {customer.first_name} {customer.last_name}
                                 </option>
                                 );
                             })}
                         </select>
+                    </div>
+
+                    <div className="form-floating mb-3">
+                        <input onChange={handleAutomobileVINChange} placeholder="Automobile VIN" required type="text" name="Automobile_VIN" id="Automobile_VIN" className="form-control" value={automobileVIN}/>
+                        <label htmlFor="first_name">Automobile VIN</label>
                     </div>
 
                     <div className="form-floating mb-3">

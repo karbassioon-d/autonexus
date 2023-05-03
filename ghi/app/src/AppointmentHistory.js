@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import historySVG from './icons/calendar2.svg'
+import historySVG from './icons/calendar3.svg'
 
 const AppointmentHistory = () => {
     const [appointments, setAppointments] = useState([])
@@ -38,6 +38,21 @@ const AppointmentHistory = () => {
         fetchAppointmentList();
     }, [search]);
 
+    if (appointments.length === 0) {
+        return (
+            <div className="container">
+                <div className="container d-flex justify-content-center align-items-center">
+                <img style={{width:"6%", maxWidth:"50px"}} src={historySVG} />
+                    <h1 style={{marginLeft:"12px"}} className="text-center">Appointment History</h1>
+                </div>
+            <form>
+                <input onChange={handleChange} placeholder='Filter by VIN...' required type="text" name="VIN" id="VIN" className="form-control" value={search}/>
+            </form>
+            <h5 className="mt-2">No appointments found for vins starting with '{search}'. </h5>
+            </div>
+        )
+    } else {
+
     return (
         <div className="container">
             <div className="container d-flex justify-content-center align-items-center">
@@ -72,8 +87,7 @@ const AppointmentHistory = () => {
                 <td>{makeTime(appointment.date_time)}</td>
                 <td>{appointment.technician.first_name + ' ' + appointment.technician.last_name}</td>
                 <td>{appointment.reason}</td>
-                {/* style={{color:"green"}} */}
-                <td>{appointment.status}</td>
+                <td style={{color:`${appointment.status_color}`}}>{appointment.status}</td>
             </tr>
             );
             })}
@@ -82,6 +96,7 @@ const AppointmentHistory = () => {
 
         </div>
     )
+    }
 }
 
 export default AppointmentHistory

@@ -132,9 +132,9 @@ def api_list_sales(request):
                 status=404
             )
         try:
-            automobile_id = content["automobile_id"]
-            automobile = AutomobileVO.objects.get(id=automobile_id)
-            content["automobile"] = automobile
+            vin = content["automobile"]
+            automobileVO = AutomobileVO.objects.get(vin=vin)
+            content["automobile"] = automobileVO
         except AutomobileVO.DoesNotExist:
             return JsonResponse(
                 {"message": "Automobile does not exist"},

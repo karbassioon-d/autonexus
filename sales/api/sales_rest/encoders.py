@@ -5,7 +5,7 @@ from .models import AutomobileVO, Salesperson, Customer, Sale
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = [
-        "vin",
+        "vin"
     ]
 
 
@@ -36,7 +36,7 @@ class SaleEncoder(ModelEncoder):
         "salesperson",
         "automobile",
         "customer",
-        "id"
+        'id'
     ]
     encoders = {
         "salesperson": SalespersonEncoder(),

@@ -91,8 +91,8 @@ def api_edit_appointment(request, id):
     else:
         content = json.loads(request.body)
         status = content["status"]
-        content["status"] = status
-        appointment = Appointment.objects.filter(id=id).update(status=status)
+        status_color = content["status_color"]
+        appointment = Appointment.objects.filter(id=id).update(status=status, status_color=status_color)
         return JsonResponse(
                 appointment,
                 encoder=AppointmentEncoder,
