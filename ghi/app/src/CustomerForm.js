@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import SuccessAlert from './SuccessAlert';
 
 const CustomerForm = () => {
-    const navigate = useNavigate();
-
     const [first_name, setFirst_name] = useState('');
     const [last_name, setLast_name] = useState('');
     const [address, setAddress] = useState('');
     const [phone_number, setPhone_number] = useState('');
+
+    const [show, setShow] = useState(false)
+
+    const heading = `Customer added successfully`
+    const route = `customers`
+    const buttonMessage = `View customers`
 
     const handleFirst_nameChange = (event) => {
         const value = event.target.value;
@@ -54,8 +58,8 @@ const CustomerForm = () => {
                 setLast_name('');
                 setAddress('');
                 setPhone_number('');
+                setShow(true);
             }
-            navigate('/customers')
 
         } catch (error) {
             console.error(error);
@@ -91,6 +95,7 @@ const CustomerForm = () => {
                   <button className="btn btn-success w-100">Add</button>
                 </form>
               </div>
+              <SuccessAlert show={show} setShow={setShow} heading={heading} route={route} buttonMessage={buttonMessage} />
             </div>
           </div>
         </div>

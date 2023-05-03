@@ -44,7 +44,7 @@ const AppointmentHistory = () => {
             <img style={{width:"6%", maxWidth:"50px"}} src={historySVG} />
                 <h1 style={{marginLeft:"12px"}} className="text-center">Appointment History</h1>
             </div>
-        <form>
+        <form style={{margin:"20px"}}>
             <input onChange={handleChange} placeholder='Filter by VIN...' required type="text" name="VIN" id="VIN" className="form-control" value={search}/>
         </form>
 
@@ -63,7 +63,6 @@ const AppointmentHistory = () => {
             </thead>
             <tbody>
             {appointments.map((appointment) => {
-                console.log(appointment)
             return (
             <tr key={appointment.id} value={appointment.id}>
                 <td>{appointment.vin}</td>

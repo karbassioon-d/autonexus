@@ -69,7 +69,7 @@ function Nav2() {
               <NavLink className="nav-link active" aria-current="page" to="/customers/new/">Add a Customer</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link active" aria-current="page" to="/sale/">Sales</NavLink>
+              <NavLink className="nav-link active" aria-current="page" to="/sale">Sales</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link active" aria-current="page" to="/sale/new/">Record a Sale</NavLink>

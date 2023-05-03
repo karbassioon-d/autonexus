@@ -1,14 +1,23 @@
 import React, { useState, useEffect } from 'react'
-
+import SuccessAlert from './SuccessAlert';
+import FailedAlert from './FailedAlert';
 
 const AutomobileForm = () => {
     const [models, setModels] = useState([]);
     const colors = ['White', 'Black', 'Gray', 'Silver', 'Blue', 'Red', 'Brown', 'Green', 'Orange', 'Yellow', 'Purple'];
 
+    const [show, setShow] = useState(false)
+    const [failedSubmit, setFailedSubmit] = useState(false)
+
     const [color, setColor] = useState('');
     const [year, setYear] = useState('');
     const [vin, setVin] = useState('');
     const [model, setModel] = useState('');
+
+    const message = `An automobile with that VIN already exists in the inventory.`
+    const heading = `Automobile added successfully`
+    const route = `automobiles`
+    const buttonMessage = `View automobiles`
 
     const handleColorChange = (event) => {
         const value = event.target.value;
@@ -60,6 +69,9 @@ const AutomobileForm = () => {
             setYear('');
             setVin('');
             setModel('');
+            setShow(true);
+        } else {
+            setFailedSubmit(true)
         }
     }
 
@@ -113,6 +125,8 @@ const AutomobileForm = () => {
                     <button className="btn btn-success w-100">Create</button>
                     </form>
                 </div>
+                <SuccessAlert show={show} setShow={setShow} heading={heading} route={route} buttonMessage={buttonMessage} />
+                <FailedAlert failedSubmit={failedSubmit} setFailedSubmit={setFailedSubmit} message={message}/>
             </div>
         </div>
     )

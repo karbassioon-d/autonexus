@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import SuccessAlert from './SuccessAlert';
+import FailedAlert from './FailedAlert';
 
 const ModelForm = () => {
-  const navigate = useNavigate();
+  const [show, setShow] = useState(false)
+  const [failedSubmit, setFailedSubmit] = useState(false)
 
   const [manufacturers, setManufacturers] = useState([]);
 
   const [name, setName] = useState('');
   const [picture, setPicture] = useState('');
   const [manufacturer, setManufacturer] = useState('');
+
+  const message = `Invalid url`
+  const heading = `Model added successfully`
+  const route = `models`
+  const buttonMessage = `View models`
 
   const fetchData = async () => {
     const url = 'http://localhost:8100/api/manufacturers/';
@@ -56,10 +63,15 @@ const ModelForm = () => {
           if (response.ok) {
               setName('');
               setPicture('');
+              setFailedSubmit(false)
+              setShow(true);
+          } else {
+            setFailedSubmit(true)
           }
-          navigate('/models')
+
 
       } catch (error) {
+          
           console.error(error);
       }
 
@@ -98,6 +110,8 @@ const ModelForm = () => {
               <button className="btn btn-success w-100">Add</button>
             </form>
           </div>
+          <SuccessAlert show={show} setShow={setShow} heading={heading} route={route} buttonMessage={buttonMessage} />
+          <FailedAlert failedSubmit={failedSubmit} setFailedSubmit={setFailedSubmit} message={message}/>
         </div>
       </div>
     </div>

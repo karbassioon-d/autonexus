@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react'
+import SuccessAlert from './SuccessAlert';
 
 const ManufacturerForm = () => {
   const [name, setName] = useState('');
+
+  const [show, setShow] = useState(false)
+
+  const heading = `Manufacturer added successfully`
+  const route = `manufacturers`
+  const buttonMessage = `View manufacturers`
 
   const handleNameChange = (event) => {
       const value = event.target.value;
@@ -27,6 +34,7 @@ const ManufacturerForm = () => {
         const response = await fetch(manufacturerUrl, fetchConfig);
         if (response.ok) {
             setName('');
+            setShow(true);
         }
 
     } catch (error) {
@@ -51,6 +59,7 @@ const ManufacturerForm = () => {
               <button className="btn btn-success w-100">Add</button>
             </form>
           </div>
+          <SuccessAlert show={show} setShow={setShow} heading={heading} route={route} buttonMessage={buttonMessage} />
         </div>
       </div>
     </div>

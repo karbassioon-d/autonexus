@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import SuccessAlert from './SuccessAlert';
 import { useNavigate } from "react-router-dom";
 
 const SaleForm = () => {
@@ -8,10 +9,16 @@ const SaleForm = () => {
     const [customers, setCustomers] = useState([]);
     const [vins, setVins] = useState([]);
 
+    const [show, setShow] = useState(false)
+
     const [salesperson, setSalesperson] = useState('');
     const [customer, setCustomer] = useState('');
     const [vin, setVin] = useState('');
     const [price, setPrice] = useState('');
+
+    const heading = `Sale recorded successfully`
+    const route = `sale`
+    const buttonMessage = `View sales`
 
     const fetchSalespersonData = async () => {
         const url = 'http://localhost:8090/api/salespeople/';
@@ -69,7 +76,6 @@ const SaleForm = () => {
         data.salesperson_id = salesperson;
         data.customer_id = customer;
         data.automobile_id = vin;
-
         const saleUrl = 'http://localhost:8090/api/sale/'
         const fetchConfig = {
             method: "POST",
@@ -82,12 +88,13 @@ const SaleForm = () => {
         try {
             const response = await fetch(saleUrl, fetchConfig);
             if (response.ok) {
-                setSalespeople('');
+                setSalesperson('');
                 setCustomer('');
                 setVin('');
                 setPrice('');
+                setShow(true);
             }
-            navigate('/sale')
+            // navigate('/sale')
 
         } catch (error) {
             console.error(error);
@@ -150,6 +157,7 @@ const SaleForm = () => {
                   <button className="btn btn-success w-100">Add</button>
                 </form>
               </div>
+               <SuccessAlert show={show} setShow={setShow} heading={heading} route={route} buttonMessage={buttonMessage} />
             </div>
           </div>
         </div>

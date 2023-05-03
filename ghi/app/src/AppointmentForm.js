@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import SuccessAlert from './SuccessAlert';
+import FailedAlert from './FailedAlert';
 
 const AppointmentForm = () => {
     const [technicians, setTechnicians] = useState([]);
     const [customers, setCustomers] = useState([]);
+    const [show, setShow] = useState(false)
+    const [failedSubmit, setFailedSubmit] = useState(false)
+
+    const heading = `Appointment scheduled successfully`
+    const route = `appointments`
+    const buttonMessage = `View appointments`
 
     const fetchTechniciansData = async () => {
         const url = 'http://localhost:8080/api/technicians/';
@@ -81,6 +89,10 @@ const AppointmentForm = () => {
             setTime('');
             setTechnician('');
             setReason('');
+            setShow(true)
+        }
+        else {
+
         }
     }
 
@@ -93,9 +105,8 @@ const AppointmentForm = () => {
         <div className="row">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 mt-4">
-                    <div className="d-flex" >
+                    <div>
                         <h1 className="text-center">Create an appointment</h1>
-                        <img src={process.env.PUBLIC_URL + '/car.svg'} style={{height:"35%", width:"35%"}} />
                     </div>
                     <form onSubmit={handleSubmit} id="create-appointment-form">
 
@@ -150,7 +161,8 @@ const AppointmentForm = () => {
                     </form>
 
                 </div>
-
+                <SuccessAlert show={show} setShow={setShow} heading={heading} route={route} buttonMessage={buttonMessage} />
+                <FailedAlert failedSubmit={failedSubmit} setFailedSubmit={setFailedSubmit} />
             </div>
         </div>
     )

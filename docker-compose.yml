@@ -4,7 +4,7 @@ volumes:
 services:
   react:
     image: node:lts-bullseye
-    command: /bin/bash run.sh
+    command: sh -c "npm install react-bootstrap bootstrap && /bin/bash run.sh"
     working_dir: /app
     volumes:
       - ./ghi/app:/app

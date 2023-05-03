@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
+import SuccessAlert from './SuccessAlert';
 
 const TechnicianForm = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+
+  const [show, setShow] = useState(false)
+
+  const heading = `Technician added successfully`
+  const route = `technicians`
+  const buttonMessage = `View technicians`
 
   const handleFirstNameChange = (event) => {
     const value = event.target.value;
@@ -33,6 +40,7 @@ const handleSubmit = async (event) => {
   if (response.ok) {
       setFirstName('');
       setLastName('');
+      setShow(true);
   }
 }
 
@@ -56,6 +64,7 @@ const handleSubmit = async (event) => {
               <button className="btn btn-success w-100">Add</button>
             </form>
           </div>
+          <SuccessAlert show={show} setShow={setShow} heading={heading} route={route} buttonMessage={buttonMessage} />
         </div>
       </div>
   )

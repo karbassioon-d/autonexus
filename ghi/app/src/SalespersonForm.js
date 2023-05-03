@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from "react-router-dom";
-
+import SuccessAlert from './SuccessAlert';
 
 const SalespersonForm = () => {
-  const navigate = useNavigate();
+
+  const [show, setShow] = useState(false)
 
   const [first_name, setFirst_name] = useState('');
   const [last_name, setLast_name] = useState('');
+
+  const heading = `Salesperson added successfully`
+  const route = `salespeople`
+  const buttonMessage = `View salespeople`
 
   const handleFirst_nameChange = (event) => {
       const value = event.target.value;
@@ -39,8 +43,8 @@ const SalespersonForm = () => {
           if (response.ok) {
               setFirst_name('');
               setLast_name('');
+              setShow(true);
           }
-          navigate('/salespeople')
 
       } catch (error) {
           console.error(error);
@@ -68,6 +72,7 @@ const SalespersonForm = () => {
               <button className="btn btn-success w-100">Add</button>
             </form>
           </div>
+          <SuccessAlert show={show} setShow={setShow} heading={heading} route={route} buttonMessage={buttonMessage} />
         </div>
       </div>
     </div>

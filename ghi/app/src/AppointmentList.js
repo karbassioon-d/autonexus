@@ -44,7 +44,6 @@ const AppointmentList = () => {
         const data = {};
         data.status = 'Finished';
         data.status_color = 'blue';
-        console.log('this is  data', data)
         const url = `http://localhost:8080/api/appointments/${id}/finish`;
         const fetchConfig = {
             method: "PUT",
@@ -57,7 +56,6 @@ const AppointmentList = () => {
         const response = await fetch(url, fetchConfig);
         if (response.ok) {
             setAppointments(appointments.filter((appointment) => appointment.id !== id));
-            console.log(response)
         }
     };
 
