@@ -33,7 +33,7 @@ const ModelList = () => {
   }, [])
 
   return (
-    <div className="container">
+    <div className="container mt-3">
       <div className="container d-flex justify-content-center align-items-center">
           <img style={{width:"5%"}} src={sportscarSVG} />
           <h1 style={{marginLeft:"20px"}}>Models <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
@@ -57,8 +57,8 @@ const ModelList = () => {
       <table className="table table-striped position-static">
         <thead>
           <tr>
-              <th>Name</th>
-              <th>Manufacturer</th>
+            <th>Manufacturer</th>
+              <th>Model</th>
               <th>Picture</th>
           </tr>
         </thead>
@@ -66,8 +66,8 @@ const ModelList = () => {
         {models.map(model => {
             return (
             <tr key={model.id} value={model.id} >
-                <td>{model.name}</td>
                 <td>{model.manufacturer.name}</td>
+                <td>{model.name}</td>
                 <td><img src={model.picture_url} style={{ width:"200px" }} /></td>
                 <td>
                   <button className="btn btn-sm btn-outline-danger" onClick={(event) => deleteModel(event, model.id)}>Delete</button>

@@ -73,6 +73,7 @@ const AppointmentForm = () => {
         data.date_time = date + ' ' + time
         data.technician = technician;
         data.reason = reason;
+        console.log('this is data', data)
         const appointmentsUrl = `http://localhost:8080/api/appointments/`;
         const fetchConfig = {
             method: "POST",
@@ -134,7 +135,7 @@ const AppointmentForm = () => {
                     </div>
 
                     <div className="form-floating mb-3">
-                        <input onChange={handleTimeChange} placeholder="Time" required type="time" name="Time" id="Time" className="form-control" value={time}/>
+                        <input onChange={handleTimeChange} type="time" step="900" placeholder="Time" required  name="Time" id="Time" className="form-control" value={time}/>
                         <label htmlFor="last_name">Time</label>
                     </div>
 

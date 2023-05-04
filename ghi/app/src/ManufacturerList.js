@@ -29,7 +29,7 @@ const SalespeopleList = () => {
   }, [])
 
   return (
-    <div className="container">
+    <div className="container mt-3">
         <div className="container d-flex justify-content-center align-items-center">
           <img style={{width:"6%", maxWidth:"50px"}} src={gearSVG} />
           <h1 style={{marginLeft:"20px"}}>Manufacturers <Link to="new" className="btn btn-sm btn-success ">+</Link> </h1>

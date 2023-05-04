@@ -29,7 +29,7 @@ const SaleList = () => {
   }, [])
 
   return (
-    <div className="container">
+    <div className="container mt-3">
         <div className="container d-flex justify-content-center align-items-center">
           <img style={{width:"6%", maxWidth:"50px"}} src={papersSVG} />
           <h1 style={{marginLeft:"12px"}}>Sales <Link to="new" className="btn btn-sm btn-success">+</Link></h1>
@@ -50,7 +50,7 @@ const SaleList = () => {
                   <td>{sale.salesperson.first_name} {sale.salesperson.last_name}</td>
                   <td>{sale.customer.first_name} {sale.customer.last_name}</td>
                   <td>{sale.automobile.vin}</td>
-                  <td>{sale.price}</td>
+                  <td>${sale.price}</td>
                   <td>
                     <button className="btn btn-sm btn-outline-danger" onClick={(event) => deleteSale(event, sale.id)}>Delete</button>
                   </td>
