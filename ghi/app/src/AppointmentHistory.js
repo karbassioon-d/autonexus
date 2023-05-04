@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import historySVG from './icons/calendar3.svg'
+import historySVG from './icons/calendar4.svg'
 
 const AppointmentHistory = () => {
     const [appointments, setAppointments] = useState([])
