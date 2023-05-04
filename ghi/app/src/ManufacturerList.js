@@ -29,12 +29,7 @@ const ManufacturerList = () => {
   }, [])
 
   return (
-    <div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1}}
-      exit={{ opacity: 0, backgroundColor: "black" }}
-      transition={{ duration: 1 }}
-      className="container">
+    <div className="container mt-3">
         <div className="container d-flex justify-content-center align-items-center">
           <img style={{width:"6%", maxWidth:"50px"}} src={gearSVG} />
           <h1 style={{marginLeft:"20px"}}>Manufacturers <Link to="new" className="btn btn-sm btn-success ">+</Link> </h1>

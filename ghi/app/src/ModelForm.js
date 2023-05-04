@@ -63,6 +63,7 @@ const ModelForm = () => {
           if (response.ok) {
               setName('');
               setPicture('');
+              setManufacturer('')
               setFailedSubmit(false)
               setShow(true);
           } else {
@@ -71,7 +72,7 @@ const ModelForm = () => {
 
 
       } catch (error) {
-          
+
           console.error(error);
       }
 

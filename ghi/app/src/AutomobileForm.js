@@ -111,11 +111,11 @@ const AutomobileForm = () => {
 
                     <div className="form-floating mb-3">
                         <select onChange={handleModelChange} required name="Model" id="Model" className="form-select" value={model}>
-                        <option value=''>Choose a model</option>
+                        <option value=''>Choose a Make & Model</option>
                         {models.map(model => {
                             return (
                                 <option key={model.id} value={model.id}>
-                                    {model.name}
+                                    {model.manufacturer.name} {model.name}
                                 </option>
                                 );
                             })}

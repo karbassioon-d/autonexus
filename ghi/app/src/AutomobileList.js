@@ -31,7 +31,7 @@ const AutomobileList = () => {
     }, []);
 
     return (
-        <div className="container">
+        <div className="container mt-3">
         <div className="container d-flex justify-content-center align-items-center">
             <img style={{width:"6%", maxWidth:"50px"}} src={carSVG} />
             <h1 style={{marginLeft:"20px"}} className="text-center">Automobiles <Link to="new" className="btn btn-sm btn-success ">+</Link></h1>

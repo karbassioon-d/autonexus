@@ -29,7 +29,7 @@ const TechnicianList = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container mt-3">
       <div className="container d-flex justify-content-center align-items-center">
         <img style={{width:"3%", maxWidth:"50px"}} src={wrenchSVG} />
         <h1 style={{marginLeft:"15px"}} className="text-center">Technicians <Link to="new" className="btn btn-sm btn-success ">+</Link></h1>
